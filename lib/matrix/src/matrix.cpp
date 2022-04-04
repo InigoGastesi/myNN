@@ -10,6 +10,8 @@ matrix::matrix(int rows, int columns, float* data) {
     this->data = data;
 }
 
+matrix::~matrix() { free(this->data); }
+
 int matrix::getColumns() { return columns; }
 int matrix::getRows() { return rows; }
 float matrix::getData(int row, int column) {
@@ -32,16 +34,11 @@ matrix* dot(matrix* mat1, matrix* mat2) {
     int rows = mat1->getRows();
     int columns = mat2->getColumns();
     float* data = (float*)calloc(rows * columns, sizeof(float));
-
     for (int i = 0; i < rows; i++) {
         for (int j = 0; j < columns; j++) {
-            for (int k = 0; k < rows; k++) {
-                std::cout << mat1->getData(i, k) << " " << mat2->getData(k, i)
-                          << std::endl;
+            for (int k = 0; k < mat1->getColumns(); k++) {
                 data[i * columns + j] +=
                     mat1->getData(i, k) * mat2->getData(k, j);
-                std::cout << "data " << data[i * columns + j] << " k " << k
-                          << std::endl;
             }
         }
     }

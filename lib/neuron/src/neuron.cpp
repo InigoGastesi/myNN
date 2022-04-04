@@ -6,14 +6,14 @@
 #include <iostream>
 
 neuron::neuron(int numberOfInputs) {
-    // float* data = (float*)calloc(numberOfInputs, sizeof(float));
-    // for (int i = 0; i < numberOfInputs; i++) {
-    //     data[i] = static_cast<float>(rand()) /
-    //               static_cast<float>(RAND_MAX);  // random number 0.0 to 1.0
-    // }
-    float data[2] = {1, 2};
+    srand((unsigned)time(0));
+    float* data = (float*)calloc(numberOfInputs, sizeof(float));
+    for (int i = 0; i < numberOfInputs; i++) {
+        data[i] = (float)rand() / (float)RAND_MAX;  // random number 0.0 to 1.0
+    }
     this->weights = new matrix(numberOfInputs, 1, data);
-    this->u = static_cast<float>(rand()) / static_cast<float>(RAND_MAX);
+    this->weights->printMatrix();
+    this->u = (float)rand() / (float)RAND_MAX;
 }
 
 float neuron::calculate(matrix* input) {

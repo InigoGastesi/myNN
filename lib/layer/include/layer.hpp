@@ -3,6 +3,7 @@
 
 #include <vector>
 
+#include "matrix.hpp"
 #include "neuron.hpp"
 
 class layer {
@@ -11,6 +12,7 @@ class layer {
 
    public:
     layer(int numberOfNeurons, int numberOfInputs);
+    matrix* calculate(matrix* input);
 };
 
 #endif

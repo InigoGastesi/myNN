@@ -4,7 +4,7 @@
 
 #include <iostream>
 
-matrix::matrix(int rows, int columns, float* data) {
+matrix::matrix(int rows, int columns, double* data) {
     this->rows = rows;
     this->columns = columns;
     this->data = data;
@@ -14,7 +14,7 @@ matrix::~matrix() { free(this->data); }
 
 int matrix::getColumns() { return columns; }
 int matrix::getRows() { return rows; }
-float matrix::getData(int row, int column) {
+double matrix::getData(int row, int column) {
     return data[row * columns + column];
 }
 
@@ -33,7 +33,7 @@ matrix* dot(matrix* mat1, matrix* mat2) {
 
     int rows = mat1->getRows();
     int columns = mat2->getColumns();
-    float* data = (float*)calloc(rows * columns, sizeof(float));
+    double* data = (double*)calloc(rows * columns, sizeof(double));
     for (int i = 0; i < rows; i++) {
         for (int j = 0; j < columns; j++) {
             for (int k = 0; k < mat1->getColumns(); k++) {

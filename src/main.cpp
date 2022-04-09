@@ -1,13 +1,14 @@
 #include <iostream>
 
+#include "layer.hpp"
 #include "matrix.hpp"
 #include "neuron.hpp"
 
 int main(int argc, char const* argv[]) {
-    neuron* n = new neuron(2);
-    float data[2] = {1, 2};
-    matrix* mat1 = new matrix(1, 2, data);
-    std::cout << n->calculate(mat1) << std::endl;
+    layer* l = new layer(2, 2);
+    double data[2] = {2, 1};
+    matrix* m = new matrix(1, 2, data);
+    l->calculate(m)->printMatrix();
 
     return 0;
 }

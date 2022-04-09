@@ -6,14 +6,14 @@ class matrix {
    private:
     int rows;
     int columns;
-    float* data;
+    double* data;
 
    public:
-    matrix(int rows, int columns, float* data);
+    matrix(int rows, int columns, double* data);
     ~matrix();
     int getRows();
     int getColumns();
-    float getData(int row, int column);
+    double getData(int row, int column);
     void printMatrix();
 };
 

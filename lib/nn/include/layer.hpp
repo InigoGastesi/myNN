@@ -8,10 +8,11 @@
 
 class layer {
    private:
-    std::vector<neuron> neurons;
+    std::vector<neuron*> neurons;
 
    public:
     layer(int numberOfNeurons, int numberOfInputs);
+    ~layer();
     matrix* calculate(matrix* input);
 };
 

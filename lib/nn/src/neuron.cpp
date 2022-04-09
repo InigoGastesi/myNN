@@ -15,14 +15,18 @@ neuron::neuron(int numberOfInputs) {
     this->weights = new matrix(numberOfInputs, 1, data);
     this->weights->printMatrix();
     this->u = (double)rand() / (double)RAND_MAX;
+    std::cout << "U:" << this->u << std::endl;
+    ;
 }
+
+neuron::~neuron() { delete this->weights; }
 
 double neuron::calculate(matrix* input) {
     matrix* resultMatrix = dot(input, this->weights);
     if (resultMatrix == nullptr) {
         return NULL;
     } else {
-        double result = resultMatrix->getData(0, 0);
+        double result = resultMatrix->getData(0, 0) + this->u;
         delete resultMatrix;
         // result = (double)(1 / (1 + exp(result)));
         return result;

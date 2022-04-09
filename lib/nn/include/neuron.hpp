@@ -10,6 +10,7 @@ class neuron {
 
    public:
     neuron(int numberOfInputs);
+    ~neuron();
     /**
      * @brief multiplica los inputs por la matriz de pesos
      * @param input
